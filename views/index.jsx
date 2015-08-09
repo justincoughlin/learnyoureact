@@ -28,15 +28,29 @@ var React = require('react');
  });
 
  var Todo = React.createClass({
-  render: function() {
-  return (
-    <tr>
-      <td style={{border:"1px solid black"}}>{this.props.title}</td>
-      <td style={{border:"1px solid black"}}>{this.props.children}</td>
-    </tr>
-    );
-  }
- });
+    getInitialState : function () {
+      return {
+        checked: false
+      }
+    },
+    handleChange : function(e) {
+      this.setState({
+        checked: e.target.checked
+      });
+    },
+    propTypes: {
+      title: React.PropTypes.string.isRequired
+    },
+    render: function() {
+      return (
+        <tr>
+          <td style={{border: "1px solid black"}}><input type="checkbox" checked={this.state.checked} onChange={this.handleChange} /></td>
+          <td style={{border: "1px solid black"}}>{this.props.title}</td>
+          <td style={{border: "1px solid black"}}>{this.props.children}</td>
+        </tr>
+      );
+    }
+  });
 
  var TodoForm = React.createClass({
    render: function() {
