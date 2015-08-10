@@ -18,7 +18,7 @@ require('node-jsx').install();
 var TodoBox = require('./views/index.jsx');
 
 var data = [
-  { title : 'Shoppings', detail: process.argv[3]},
+  { title : 'Shopping', detail: process.argv[3]},
   { title : 'Hair cut', detail: process.argv[4]}
 ];
 
